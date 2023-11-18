@@ -267,9 +267,11 @@ export class JoinAttribute {
         return this.mapToProperty!.split(".")[0]
     }
 
-    get mapToPropertyPropertyName(): string | undefined {
+    get mapToPropertyPropertyName() {
         if (!this.mapToProperty) return undefined
 
-        return this.mapToProperty!.split(".")[1]
+        const firstDotIndex = this.mapToProperty.indexOf(".")
+        if (firstDotIndex === -1) return this.mapToProperty
+        return this.mapToProperty.substring(firstDotIndex + 1)
     }
 }
