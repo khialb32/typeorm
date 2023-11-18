@@ -267,7 +267,7 @@ export class JoinAttribute {
         return this.mapToProperty!.split(".")[0]
     }
 
-    get mapToPropertyPropertyName() {
+    get mapToPropertyPropertyName(): string | undefined {
         if (!this.mapToProperty) return undefined
 
         const firstDotIndex = this.mapToProperty.indexOf(".")
